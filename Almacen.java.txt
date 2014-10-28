@@ -1,0 +1,31 @@
+package p1BanCabCue;
+public class Almacen {
+
+    private TorreCajas fs=new TorreCajas();//fs=FinalStack o pila final
+
+    public Almacen(){
+    }
+    public void almacenarCarga(Caja cajitaP){
+        fs.apilar(cajitaP);
+        if(fs.size()!=0){
+            System.out.println("Número de Cajas almacenadas en el almacén:" + " " +fs.size());
+        }
+    }
+    public int size(){
+        int tamano;
+        tamano=fs.size();
+        return tamano;
+    }
+    private String getTorreCaja(){
+        return fs.desapilar().getidCaja();
+    }
+    public void mostrarEstadoAlmacen(String almacen){
+        System.out.println("Este es el estado final del Almacen "+almacen);
+        System.out.println("\nNs cajas:"+ " " +fs.size());
+        System.out.println("Configuración final de la torre de cajas:");
+        while(fs.size()!=0){
+            System.out.println("\t\t\t\t\t\t"+getTorreCaja());
+        }
+        System.out.println("\n");
+    }
+}
